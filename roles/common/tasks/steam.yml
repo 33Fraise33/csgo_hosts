@@ -1,0 +1,26 @@
+- name: remove steam from desktop
+  win_file: 
+    path: C:\Users\Public\Desktop\Steam.lnk
+    state: absent
+
+- name: Start Steam at user login
+  win_shortcut:
+    src: 'C:\Program Files (x86)\Steam\steam.exe'
+    dest: 'C:\Users\{{ item }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Steam.lnk'
+    arguments: '-language english'
+    directory: 'C:\Program Files (x86)\Steam'
+  loop: 
+    - groupA
+    - groupC
+  when: '"groupsAC" in group_names or "tests" in group_names'
+
+- name: Start Steam at user login
+  win_shortcut:
+    src: 'C:\Program Files (x86)\Steam\steam.exe'
+    dest: 'C:\Users\{{ item }}\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Steam.lnk'
+    arguments: '-language english'
+    directory: 'C:\Program Files (x86)\Steam'
+  loop: 
+    - groupB
+    - groupD
+  when: '"groupsBD" in group_names or "tests" in group_names'

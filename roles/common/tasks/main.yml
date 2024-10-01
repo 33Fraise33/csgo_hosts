@@ -1,0 +1,143 @@
+# HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows
+# RemovableStorageDevices
+# Deny_All
+# 1
+# - name: Disable usb stick usage on windows host
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices
+#     name: Deny_All
+#     data: 1
+#     type: dword
+#   when: '"tests" not in group_names'
+
+# https://stackoverflow.com/questions/69776800/how-to-set-lock-screen-photo-using-powershell
+# # Not working???
+# - name: Disable Lockscreen changing
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization
+#     name: NoChangingLockScreen
+#     data: 1
+#     type: dword
+
+# - name: Change lockscreen image
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization
+#     name: LockScreenImage
+#     data: C:\back.jpg
+
+# - name: Hide Lockscreen overlay
+#   win_regedit:
+#     path: HKLM:\SOFTWARE\Policies\Microsoft\Windows\Personalization
+#     name: LockScreenOverlaysDisabled
+#     data: 1
+#     type: dword
+
+# - name: Create user "Player"
+#   win_user:
+#     name: "Player"
+#     password: "Redbull9"
+#     state: present
+#     groups:
+#       - Users
+#   loop_control:
+#     index_var: loop_index
+#   when: '"stageA" in group_names or "stageB" in group_names'
+
+# - name: Create Users A and C
+#   win_user:
+#     name: "{{ item.name }}"
+#     password: "{{ item.password }}"
+#     state: present
+#     groups:
+#       - Benutzer
+#   loop: 
+#     - { name: groupA , password: Redbull5 } 
+#     - { name: groupC , password: Redbull7 } 
+#   loop_control:
+#     index_var: loop_index
+#   when: '"groupsAC" in group_names or "tests" in group_names'
+
+# - name: Create Users B and D
+#   win_user:
+#     name: "{{ item.name }}"
+#     password: "{{ item.password }}"
+#     state: present
+#     groups:
+#       - Benutzer
+#   loop: 
+#     - { name: groupB , password: Redbull6 } 
+#     - { name: groupD , password: Redbull8 } 
+#   loop_control:
+#     index_var: loop_index
+#   when: '"groupsBD" in group_names or "tests" in group_names'
+
+# - name: Copy needed files
+#   win_copy:
+#     src: "{{ item }}"
+#     dest: C:\{{ item }}
+#   loop: 
+#     - back.jpg
+#     - SteelSeriesGG27.0.0Setup.exe 
+#     # - RazerSynapseInstaller_V1.9.1.344.exe
+#     - lghub_installer.exe
+#     - FACEIT-setup-latest.exe
+#     - FACEITInstaller_64.exe
+#     - DiscordSetup.exe
+#     - TeamSpeak3-Client-win32-3.5.6.exe
+
+# - name: Run mousepointer stuff
+#   include_tasks:
+#     file: enhancepointeroff.yml
+
+# - name: Run faceit stuff
+#   include_tasks:
+#     file: faceit.yml
+
+# - name: Run discord stuff
+#   include_tasks:
+#     file: discord.yml
+
+# - name: Run teamspeak stuff
+#   include_tasks:
+#     file: teamspeak.yml
+
+# - name: Run steam stuff
+#   include_tasks:
+#     file: steam.yml
+
+# - name: Run ghub stuff
+#   include_tasks:
+#     file: ghub.yml
+#   when: ghub is defined and ghub
+
+# - name: Run steelseries stuff
+#   include_tasks:
+#     file: steelseries.yml
+#   when: steelseries is defined and steelseries
+
+- name: copy user stuff
+  include_tasks:
+    file: user.yml
+  when: user_configs is defined
+
+# - name: Copy GPO editor file
+#   win_copy:
+#     src: Console1.msc
+#     dest: C:\Users\{{ ansible_user }}\Desktop\Console1.msc
+
+# - name: Copy GPO Policy zip
+#   win_copy:
+#     src: GroupPolicy.zip
+#     dest: C:\Users\{{ ansible_user }}\Desktop\GroupPolicy.zip
+
+# - name: Extract group policy zip to the group policy location
+#   win_unzip:
+#     src: C:\Users\{{ ansible_user }}\Desktop\GroupPolicy.zip
+#     dest: C:\Windows\System32\ # GroupPolicy Directory Contained within
+
+# - name: force update the Group Policy
+#   win_shell: gpupdate /force
+    
+
+# synapse no silent install
+# SteelSeriesGG26.0.0Setup.exe /S

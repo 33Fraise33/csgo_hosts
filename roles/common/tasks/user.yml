@@ -1,0 +1,12 @@
+- name: make user directory
+  win_file: 
+    path: C:\Program Files (x86)\Steam\userdata\{{ item.id }}\730\local\cfg
+    state: directory
+  loop: "{{ user_configs }}"
+
+- name: Copy user config files
+  win_copy:
+    src: "user_configs/{{ item.path }}/"
+    dest: C:\Program Files (x86)\Steam\userdata\{{ item.id }}\730\local\cfg\
+  loop: "{{ user_configs }}"
+  

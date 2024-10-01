@@ -1,0 +1,49 @@
+- name: Disable mouse accell A
+  win_regedit:
+    path: HKCU:\Control Panel\Mouse
+    name: MouseSpeed
+    data: 0
+  vars: 
+    ansible_user: groupA
+    ansible_password: Redbull5
+  when: '"groupsAC" in group_names or "tests" in group_names'
+
+- name: Disable mouse accell C
+  win_regedit:
+    path: HKCU:\Control Panel\Mouse
+    name: MouseSpeed
+    data: 0
+  vars: 
+    ansible_user: groupC
+    ansible_password: Redbull7
+  when: '"groupsAC" in group_names or "tests" in group_names'
+
+- name: Disable mouse accell B
+  win_regedit:
+    path: HKCU:\Control Panel\Mouse
+    name: MouseSpeed
+    data: 0
+  vars: 
+    ansible_user: groupB
+    ansible_password: Redbull6
+  when: '"groupsBD" in group_names or "tests" in group_names'
+
+- name: Disable mouse accell D
+  win_regedit:
+    path: HKCU:\Control Panel\Mouse
+    name: MouseSpeed
+    data: 0
+  vars: 
+    ansible_user: groupD
+    ansible_password: Redbull8
+  when: '"groupsBD" in group_names or "tests" in group_names'
+
+- name: Disable mouse accell 
+  win_regedit:
+    path: HKCU:\Control Panel\Mouse
+    name: MouseSpeed
+    data: 0
+  vars: 
+    ansible_user: Player
+    ansible_password: Redbull9
+  when: '"stageA" in group_names or "stageB" in group_names'

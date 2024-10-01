@@ -1,0 +1,6 @@
+all:
+  hosts:
+    dev: 
+      ansible_host: 169.254.33.128
+      ansible_user: ADMIN
+      ansible_password: admin

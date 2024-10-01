@@ -1,0 +1,1 @@
+-tickrate 128 -noforcemaccel -noforcemparms +exec autoexec -allow_third_party_software +clientport 27008 +fps_max 0

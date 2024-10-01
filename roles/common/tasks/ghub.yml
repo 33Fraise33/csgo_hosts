@@ -1,0 +1,6 @@
+# SILENT: --silent
+- name: install ghub
+  win_package: 
+    path: C:\lghub_installer.exe
+    arguments: "--silent"
+

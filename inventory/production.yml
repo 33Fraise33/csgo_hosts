@@ -1,0 +1,187 @@
+all:
+  vars: 
+    ansible_user: User
+    ansible_password: "tccopenhagen2022"
+    user_configs:
+      - id: 427790854
+        path: furia-drop
+      - id: 135656609
+        path: furia-gabi
+      - id: 868554
+        path: spirit-magixx
+      - id: 1102803112
+        path: spirit-w0nder
+      - id: 18569432
+        path: og-flamez
+      - id: 292168772
+        path: og-f1ku
+      # - id: 45361480
+      #   path: nip-calc # NO CONFIG
+      - id: 1859646
+        path: nip-es3tag
+      - id: 115780162
+        path: big-d7
+      - id: 292712707
+        path: big-zana
+      - id: 114497073
+        path: g2-m0nesy
+      - id: 16839456
+        path: g2-jks
+      - id: 43849788
+        path: heroic-cadian
+      - id: 36412550
+        path: heroic-teses
+      - id: 35794427
+        path: cpflames-raalz
+      - id: 146876280
+        path: cpflames-borup
+      - id: 188494748
+        path: swiiiry-raks0n
+      - id: 391353527
+        path: swiiiry-mati
+      - id: 83407881
+        path: kuusamo-puteli
+      - id: 230981917
+        path: kuusamo-8juho8
+  children: 
+    tests: 
+      hosts: 
+        # T01: 
+        #   ansible_host: 10.33.2.109
+        #     - id: 259753379
+        #       path: enayi-batu
+        #     - id: 60299724
+        #       path: budget-vikings-mrdoddle
+        T02: 
+          ansible_host: 10.33.2.84
+        T03: 
+          ansible_host: 10.33.2.111
+        T04: 
+          ansible_host: 10.33.2.110
+    groupsAC: 
+      hosts: 
+        A03: 
+          ansible_host: 10.33.2.99
+        A04: 
+          ansible_host: 10.33.2.100
+        A07: 
+          ansible_host: 10.33.2.51
+          user_configs: 
+            - id: 1113841615
+              path: ultras-peanut
+        A08: 
+          ansible_host: 10.33.2.52
+          user_configs: 
+            - id: 422270434
+              path: ultras-matiz
+        A11: 
+          ansible_host: 10.33.2.103
+          user_configs: 
+            - id: 184933796
+              path: airforcedrip-licale
+        A12: 
+          ansible_host: 10.33.2.102
+          user_configs: 
+            - id: 479437148
+              path: airforcedrip-sn0w
+        B01: 
+          ansible_host: 10.33.2.85
+          user_configs: 
+            - id: 188494748
+              path: swiiiry-raks0n
+        B02: 
+          ansible_host: 10.33.2.87
+          user_configs: 
+            - id: 391353527
+              path: swiiiry-mati
+        B05: 
+          ansible_host: 10.33.2.90
+          steelseries: true
+          user_configs: 
+            - id: 282398562
+              path: caffeinepeek-speedie
+        B06: 
+          ansible_host: 10.33.2.92
+          user_configs:
+            - id: 171169004
+              path: caffeinepeek-knuten
+        B09: 
+          ansible_host: 10.33.2.93
+        B10: 
+          ansible_host: 10.33.2.94
+    groupsBD: 
+      hosts: 
+        A01: 
+          ansible_host: 10.33.2.97
+          user_configs: 
+            - id: 83407881
+              path: kuusamo-puteli
+        A02: 
+          ansible_host: 10.33.2.98
+          user_configs: 
+            - id: 230981917
+              path: kuusamo-8juho8
+        A05: 
+          ansible_host: 10.33.2.104
+          user_configs: 
+            - id: 848961404
+              path: depression-drext
+        A06: 
+          ansible_host: 10.33.2.101
+          user_configs: 
+            - id: 837883417
+              path: depression-frozzen
+        A09: 
+          ansible_host: 10.33.2.53
+        A10: 
+          ansible_host: 10.33.2.201
+        B03: 
+          ansible_host: 10.33.2.88
+        B04: 
+          ansible_host: 10.33.2.89
+        B07: 
+          ansible_host: 10.33.2.112
+          user_configs: 
+            - id: 390546358
+              path: citytalents-rinory
+        B08: 
+          ansible_host: 10.33.2.91
+          user_configs: 
+            - id: 420615598
+              path: citytalents-gulito
+        B11: 
+          ansible_host: 10.33.2.95
+          user_configs: 
+            - id: 399235456
+              path: major-sh1rax
+        T01: 
+          ansible_host: 10.33.2.109
+          user_configs: 
+            - id: 236691769
+              path: major-arspower
+    stageA: 
+      hosts: 
+        S01A:
+          ansible_host: 10.33.2.73
+        S02A:
+          ansible_host: 10.33.2.133
+        S03A:
+          ansible_host: 10.33.2.75
+        S04A:
+          ansible_host: 10.33.2.74
+    stageB: 
+      hosts: 
+        S01B:
+          ansible_host: 10.33.2.71
+        S02B:
+          ansible_host: 10.33.2.70
+        S03B:
+          ansible_host: 10.33.2.77
+        S04B:
+          ansible_host: 10.33.2.76
+        
+    
+    
+    
+    
+    

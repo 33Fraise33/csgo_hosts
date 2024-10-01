@@ -1,0 +1,10 @@
+- name: Update Admin User
+  win_user:
+    name: "User"
+    password: "tccopenhagen2022"
+    state: present
+    groups: 
+      - Administratoren
+
+- name: Reset connection for new password
+  meta: reset_connection

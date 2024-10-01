@@ -1,0 +1,46 @@
+# SILENT: -s
+
+- name: install discord client stage
+  win_package: 
+    path: C:\DiscordSetup.exe
+    arguments: "-s"
+  vars: 
+    ansible_user: Player
+    ansible_password: Redbull9
+  when: '"stageA" in group_names or "stageB" in group_names'
+
+- name: install discord client A
+  win_package: 
+    path: C:\DiscordSetup.exe
+    arguments: "-s"
+  vars: 
+    ansible_user: groupA
+    ansible_password: Redbull5
+  when: '"groupsAC" in group_names or "tests" in group_names'
+
+- name: install discord client C
+  win_package: 
+    path: C:\DiscordSetup.exe
+    arguments: "-s"
+  vars: 
+    ansible_user: groupC
+    ansible_password: Redbull7
+  when: '"groupsAC" in group_names or "tests" in group_names'
+
+- name: install discord client B
+  win_package: 
+    path: C:\DiscordSetup.exe
+    arguments: "-s"
+  vars: 
+    ansible_user: groupB
+    ansible_password: Redbull6
+  when: '"groupsBD" in group_names or "tests" in group_names'
+
+- name: install discord client D
+  win_package: 
+    path: C:\DiscordSetup.exe
+    arguments: "-s"
+  vars: 
+    ansible_user: groupD
+    ansible_password: Redbull8
+  when: '"groupsBD" in group_names or "tests" in group_names'

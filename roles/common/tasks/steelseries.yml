@@ -1,0 +1,5 @@
+# SILENT: /S
+- name: install steelseries
+  win_package: 
+    path: C:\SteelSeriesGG27.0.0Setup.exe
+    arguments: "/S"
